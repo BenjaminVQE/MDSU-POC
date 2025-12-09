@@ -23,7 +23,7 @@ docker-build:
 	@docker build -t $(DOCKER_IMAGE) .
 
 docker-run:
-	@docker run --rm -p $(PORT):3000 --name $(APP_NAME) $(DOCKER_IMAGE)
+	@docker run --rm -p $(PORT):3000 --name $(APP_NAME) -d $(DOCKER_IMAGE)
 
 docker-stop:
 	@docker stop $(APP_NAME) || true

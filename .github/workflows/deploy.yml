@@ -40,5 +40,5 @@ jobs:
             sudo docker stop  mds-poc-container || true
             sudo docker rm  mds-poc-container || true
             echo "--Running container--"
-            sudo docker run -p 3012:80 --name mds-poc-container -d $REGISTRY_NAME/mds-poc
+            sudo docker run -p 3012:3000 --name mds-poc-container -d $REGISTRY_NAME/mds-poc
           EOF
