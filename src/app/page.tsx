@@ -106,7 +106,7 @@ export default function Home() {
                 sécurité.
               </h1>
               <p className="text-lg text-slate-700 sm:text-xl">
-                MDSU connecte des personnes vérifiées et leur propose des dates
+                Trustly connecte des personnes vérifiées et leur propose des dates
                 dans des établissements affiliés (bars, restaurants, hôtels)
                 formés à la prévention et prêts à intervenir si besoin.
               </p>
@@ -283,7 +283,7 @@ export default function Home() {
               </p>
             </div>
             <a
-              href="mailto:contact@mdsu.app?subject=Rejoindre%20le%20réseau%20affili%C3%A9"
+              href="mailto:contact@trustly.app?subject=Rejoindre%20le%20réseau%20affili%C3%A9"
               className="inline-flex items-center justify-center rounded-xl bg-rose-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-500/40 transition hover:translate-y-[-1px] hover:bg-rose-400"
             >
               Discuter affiliation

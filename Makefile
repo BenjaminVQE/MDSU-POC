@@ -1,4 +1,4 @@
-APP_NAME := mdsu-app
+APP_NAME := trustly-app
 DOCKER_IMAGE := $(APP_NAME):latest
 PORT ?= 3000
 
