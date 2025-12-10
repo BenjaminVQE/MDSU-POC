@@ -25,6 +25,8 @@ jobs:
       - name: Inject GA ID into .env
         run: |
           echo "NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID" > .env
+          echo "BREVO_API_KEY=$BREVO_API_KEY" > .env
+          echo "BREVO_LIST_ID=$BREVO_LIST_ID" > .env
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
