@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, FormEvent } from "react";
+
 const features = [
   {
     title: "Vérification renforcée",
@@ -44,6 +48,44 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [email, setEmail] = useState<string>("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
+  const [message, setMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    setMessage(null);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.error || "Erreur");
+      }
+
+      setStatus("success");
+      setMessage(
+        "Merci ! Vérifiez votre boîte mail pour rejoindre la communauté WhatsApp."
+      );
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+      setMessage("Une erreur est survenue, merci de réessayer.");
+    } finally {
+      setStatus("idle");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-rose-50 via-amber-50 to-white text-slate-900">
       <div className="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-rose-300/30 via-amber-200/30 to-transparent blur-3xl" />
@@ -73,20 +115,35 @@ export default function Home() {
                   Laissez votre email pour accéder aux premières invitations
                   (beta privée) et participer aux itérations produit.
                 </p>
-                <form className="flex flex-col gap-3 sm:flex-row">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-3 sm:flex-row"
+                >
                   <input
                     type="email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="votre.email@email.com"
                     className="w-full rounded-xl border border-rose-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-400/40"
                   />
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-xl bg-rose-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-500/40 transition hover:bg-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400"
+                    disabled={status === "loading"}
+                    className="inline-flex items-center justify-center rounded-xl bg-rose-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-500/40 transition hover:bg-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400 disabled:opacity-70"
                   >
-                    Rejoindre la beta
+                    {status === "loading" ? "Inscription..." : "Rejoindre la beta"}
                   </button>
                 </form>
+                {message && (
+                  <p
+                    className={`text-xs ${
+                      status === "success" ? "text-emerald-600" : "text-red-600"
+                    }`}
+                  >
+                    {message}
+                  </p>
+                )}
                 <p className="text-xs text-slate-500">
                   Pas de spam. Vous recevrez un questionnaire court pour valider
                   votre profil et vos attentes.
