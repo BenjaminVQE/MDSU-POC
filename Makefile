@@ -6,6 +6,8 @@ PORT ?= 3000
 
 install:
 	@npm install
+	make docker-build
+	make docker-run
 
 dev:
 	@npm run dev
