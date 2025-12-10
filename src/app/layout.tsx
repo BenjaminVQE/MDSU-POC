@@ -24,7 +24,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-R9R7H5Y8Y0";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-MNDSQ0PMFK";
 
   return (
     <html lang="fr">
