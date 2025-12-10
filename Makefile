@@ -5,7 +5,6 @@ PORT ?= 3000
 .PHONY: install dev build start lint docker-build docker-run docker-stop
 
 install:
-	@npm install
 	make docker-build
 	make docker-run
 
@@ -25,7 +24,7 @@ docker-build:
 	@docker build -t $(DOCKER_IMAGE) .
 
 docker-run:
-	@docker run --rm -p $(PORT):3000 --name $(APP_NAME) -d $(DOCKER_IMAGE)
+	@docker run --rm -p $(PORT):80 --name $(APP_NAME) -d $(DOCKER_IMAGE)
 
 docker-stop:
 	@docker stop $(APP_NAME) || true

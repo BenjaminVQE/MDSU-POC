@@ -14,6 +14,7 @@ jobs:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
       REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
+      NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
 
     steps:
       - name: Checkout code
@@ -21,7 +22,7 @@ jobs:
 
       - name: Inject GA ID into .env
         run: |
-          echo "NEXT_PUBLIC_GA_ID=${{ secrets.NEXT_PUBLIC_GA_ID }}" > .env
+          echo "NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID" > .env
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
