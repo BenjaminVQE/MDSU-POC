@@ -29,3 +29,9 @@ docker-run:
 docker-stop:
 	@docker stop $(APP_NAME) || true
 
+dc-up:
+	@docker compose up -d
+
+dc-down:
+	@docker compose down -v
+
