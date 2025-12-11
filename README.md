@@ -1,4 +1,4 @@
-# MDSU-POC
+# Trustly-POC
 
 POC de la landingpage
 

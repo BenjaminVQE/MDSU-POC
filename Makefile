@@ -1,4 +1,4 @@
-APP_NAME := mdsu-app
+APP_NAME := trustly-app
 DOCKER_IMAGE := $(APP_NAME):latest
 PORT ?= 3000
 
@@ -28,4 +28,10 @@ docker-run:
 
 docker-stop:
 	@docker stop $(APP_NAME) || true
+
+dc-up:
+	@docker compose up -d
+
+dc-down:
+	@docker compose down -v
 

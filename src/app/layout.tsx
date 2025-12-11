@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MDSU | Rencontres sécurisées",
+  title: "Trustly | Rencontres fiables et sécurisées",
   description:
-    "Rencontres sereines dans des établissements partenaires, avec vérification et suivi pour des dates sûres.",
+    "Trustly, le premier pas vers des rencontres fiables et sécurisées",
 };
 
 export default function RootLayout({
