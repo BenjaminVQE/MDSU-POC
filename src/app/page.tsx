@@ -4,31 +4,31 @@ import { useState, FormEvent } from "react";
 
 const features = [
   {
-    title: "Vérification renforcée",
-    desc: "Identité et profil validés avant toute mise en relation.",
+    title: "Sécurité",
+    desc: "Vivez une rencontre authentique, en vrai, en toute sécurité",
   },
   {
     title: "Établissements affiliés",
-    desc: "Bars, restaurants et hôtels partenaires formés à la sécurité.",
+    desc: "Choisissez une activité dans un lieu partenaire vérifié.",
   },
   {
-    title: "Suivi discret",
-    desc: "Check-in/check-out et bouton d’alerte partagé si besoin.",
+    title: "Rencontres",
+    desc: "Rencontrez quelqu’un qui partage vos envies.",
   },
 ];
 
 const steps = [
   {
-    title: "1. Inscription et vérification",
-    desc: "On valide identité et intentions pour limiter les faux profils.",
+    title: "1. Rencontrez des personnes qui partagent vos hobbies",
+    desc: "Découvrez des passionnés comme vous et échangez autour de vos centres d'intérêt."
   },
   {
-    title: "2. Match et choix du lieu",
-    desc: "On propose des lieux partenaires sécurisés proches de vous.",
+    title: "2. Choisissez une activité dans un lieu partenaire vérifié",
+    desc: "Sélectionnez des activités dans des lieux fiables et proches de chez vous."
   },
   {
-    title: "3. Date sereine",
-    desc: "Support discret en cas de besoin, avec présence du staff formé.",
+    title: "3. Vivez une rencontre authentique, en vrai, en toute sécurité",
+    desc: "Profitez d’un moment convivial en toute confiance et créez des souvenirs vrais."
   },
 ];
 
@@ -96,19 +96,17 @@ export default function Home() {
               Sécurité d’abord
             </span>
             <span className="text-xs text-slate-600">
-              Établissements affiliés • Vérification renforcée • Support discret
+              Rassurant • Bienveillance • Communauté • Ouvert • Dynamique
             </span>
           </div>
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div className="space-y-6">
               <h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-                Rencontres sereines dans des lieux partenaires conçus pour la
-                sécurité.
+                Trustly, le premier pas vers des rencontres fiables et sécurisées
               </h1>
               <p className="text-lg text-slate-700 sm:text-xl">
-                Trustly connecte des personnes vérifiées et leur propose des dates
-                dans des établissements affiliés (bars, restaurants, hôtels)
-                formés à la prévention et prêts à intervenir si besoin.
+                Marre des échanges qui ne mènent nulle part ? Envie de rencontrer quelqu’un dans un endroit sûr, où tout est pensé ?
+                Trustly arrive bientôt, et vous pouvez faire partie des premiers à y accéder.
               </p>
               <div className="flex flex-col gap-3 rounded-2xl border border-rose-200 bg-white/70 p-5 shadow-xl backdrop-blur lg:max-w-xl">
                 <p className="text-sm text-slate-700">
@@ -132,7 +130,7 @@ export default function Home() {
                     disabled={status === "loading"}
                     className="inline-flex items-center justify-center rounded-xl bg-rose-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-500/40 transition hover:bg-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400 disabled:opacity-70"
                   >
-                    {status === "loading" ? "Inscription..." : "Rejoindre la beta"}
+                    {status === "loading" ? "Inscription..." : "Rejoindre Trustly"}
                   </button>
                 </form>
                 {message && (
@@ -145,65 +143,48 @@ export default function Home() {
                   </p>
                 )}
                 <p className="text-xs text-slate-500">
-                  Pas de spam. Vous recevrez un questionnaire court pour valider
-                  votre profil et vos attentes.
+                  Un e-mail vous sera envoyé automatiquement pour rejoindre notre communauté WhatsApp.
                 </p>
-              </div>
-              <div className="flex flex-wrap gap-4 text-sm text-slate-700">
-                <div className="flex items-center gap-2 rounded-full border border-rose-100 bg-white/70 px-3 py-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                  Vérification identité & selfie-liveness
-                </div>
-                <div className="flex items-center gap-2 rounded-full border border-amber-100 bg-white/70 px-3 py-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-                  Check-in/check-out avec code unique
-                </div>
-                <div className="flex items-center gap-2 rounded-full border border-sky-100 bg-white/70 px-3 py-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-sky-400" />
-                  Staff formé + bouton d’alerte partagé
-                </div>
               </div>
             </div>
             <div className="rounded-3xl border border-rose-200 bg-white/70 p-6 shadow-2xl backdrop-blur">
               <div className="mb-4 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-600">Prochaine cohorte</p>
-                  <p className="text-lg font-semibold text-slate-900">Janvier</p>
-                </div>
                 <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-semibold text-emerald-700">
                   Beta privée
                 </span>
               </div>
               <div className="space-y-4 text-sm text-slate-700">
                 <div className="flex items-start gap-3 rounded-2xl border border-rose-100 bg-white/70 p-4">
-                  <div className="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400" />
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="h-3 w-3 rounded-full bg-rose-400" />
+                  </div>
                   <div>
                     <p className="font-semibold text-slate-900">
-                      Établissements affiliés
+                      Accès Beta Test
                     </p>
-                    <p>9 lieux partenaires prêts à accueillir les premiers RDV.</p>
+                    <p>Participez à la phase de test et profitez d’un environnement sécurisé pour vos premières rencontres.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 rounded-2xl border border-amber-100 bg-white/70 p-4">
-                  <div className="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400" />
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="h-3 w-3 rounded-full bg-blue-400" />
+                  </div>
                   <div>
                     <p className="font-semibold text-slate-900">
-                      Procédures anti-harcèlement
+                     Offres de réductions sur les premiers rendez-vous.
                     </p>
-                    <p>Brèves formations staff + protocole d’escalade discret.</p>
+                    <p>Bénéficiez de promotions exclusives tout en garantissant la sécurité grâce à notre personnel formé et vigilant.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 rounded-2xl border border-sky-100 bg-white/70 p-4">
-                  <div className="mt-1 h-2.5 w-2.5 rounded-full bg-amber-300" />
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="h-3 w-3 rounded-full bg-amber-400" />
+                  </div>
                   <div>
-                    <p className="font-semibold text-slate-900">Assistance live</p>
-                    <p>Check-in, alertes partagées, et suivi temps réel.</p>
+                    <p className="font-semibold text-slate-900">Jeux concours</p>
+                    <p>Participez au tirage au sort pour tenter de remporter des récompenses exclusives !</p>
                   </div>
                 </div>
-                <p className="text-xs text-slate-600">
-                  Vous êtes un établissement ? Écrivez-nous pour rejoindre le
-                  réseau affilié (onboard en 48h).
-                </p>
               </div>
             </div>
           </div>
@@ -226,11 +207,10 @@ export default function Home() {
         <section className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-slate-900">
-              Comment ça marche
+              Comment ça fonctionne ?
             </h2>
             <p className="text-slate-700">
-              Nous combinons vérification d’identité, sélection de lieux sûrs et
-              support réactif pour que la première rencontre se fasse dans un
+              Nous combinons vérification d’identité et sélection de lieux sûrs pour que la première rencontre se fasse dans un
               cadre clair et rassurant.
             </p>
           </div>
