@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import Image from "next/image";
+import CookieBanner from "./components/CookieBanner.tsx";
 
 const features = [
   {
@@ -291,12 +292,19 @@ export default function Home() {
                 Onboard en 48h avec un kit staff + process d’alerte.
               </p>
             </div>
-            <a
-              href="mailto:contact@trustly.app?subject=Rejoindre%20le%20réseau%20affili%C3%A9"
-              className="inline-flex items-center justify-center rounded-xl bg-rose-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-500/40 transition hover:translate-y-[-1px] hover:bg-rose-400"
+           <a
+              href="mailto:mymdsu@gmail.com?subject=Rejoindre%20le%20réseau%20affili%C3%A9"
+              className="inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold text-white shadow-lg transition"
+              style={{
+                backgroundColor: "#eb5850",
+                boxShadow: "0 5px 10px -2px rgba(235,88,85,0.4)",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#d94c73")}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#eb5850")}
             >
               Discuter affiliation
             </a>
+
           </div>
           <p className="text-xs text-slate-700">
             Nous recherchons des bars, restaurants, hôtels et tiers-lieux
@@ -304,6 +312,7 @@ export default function Home() {
             membres.
           </p>
         </section>
+        <CookieBanner />
       </main>
     </div>
   );
