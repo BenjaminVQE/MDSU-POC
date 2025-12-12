@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Image from "next/image";
 
 const features = [
   {
@@ -87,14 +88,23 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-amber-50 to-white text-slate-900">
+      <div
+      className="min-h-screen text-slate-900"
+      style={{
+      background: "linear-gradient(to bottom, #feebda, #fbc63f)"
+    }}
+    >
       <div className="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-rose-300/30 via-amber-200/30 to-transparent blur-3xl" />
       <main className="relative mx-auto flex max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 sm:px-10 lg:px-16">
         <header className="flex flex-col gap-10">
           <div className="flex items-center gap-3">
-            <span className="rounded-full bg-rose-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-rose-700 ring-1 ring-rose-500/30">
-              Sécurité d’abord
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Trustly Logo"
+              width={96}
+              height={32}
+              className="rounded-full"
+            />
             <span className="text-xs text-slate-600">
               Rassurant • Bienveillance • Communauté • Ouvert • Dynamique
             </span>
@@ -128,7 +138,14 @@ export default function Home() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="inline-flex items-center justify-center rounded-xl bg-rose-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-500/40 transition hover:bg-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400 disabled:opacity-70"
+                    className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-lg transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-70"
+                    style={{
+                      backgroundColor: "#eb5850",
+                      boxShadow: "0 10px 15px -3px rgba(235,88,85,0.4), 0 4px 6px -2px rgba(235,88,85,0.3)",
+                      cursor: "pointer"
+                    }}
+                    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#d94c73")}
+                    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#eb5850")}
                   >
                     {status === "loading" ? "Inscription..." : "Rejoindre Trustly"}
                   </button>

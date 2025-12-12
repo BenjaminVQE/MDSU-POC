@@ -5,8 +5,8 @@ PORT ?= 3000
 .PHONY: install dev build start lint docker-build docker-run docker-stop
 
 install:
-	make docker-build
-	make docker-run
+	make npm-install
+	make dc-up
 
 dev:
 	@npm run dev
@@ -16,6 +16,9 @@ build:
 
 start:
 	@npm start
+
+npm-install:
+	docker compose run --rm app npm install
 
 lint:
 	@npm run lint
