@@ -206,7 +206,16 @@ export default function Home() {
             </div>
           </div>
         </header>
-
+        <div className="mx-auto" style={{ width: "250px" }}>
+          <video
+            src="/video.mp4"
+            className="w-full h-auto rounded-2xl shadow-lg"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        </div>
         <section className="grid gap-6 rounded-3xl border border-rose-100 bg-white/80 p-8 backdrop-blur sm:grid-cols-3">
           {features.map((feature) => (
             <div
