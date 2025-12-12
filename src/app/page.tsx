@@ -206,7 +206,6 @@ export default function Home() {
             </div>
           </div>
         </header>
-
         <section className="grid gap-6 rounded-3xl border border-rose-100 bg-white/80 p-8 backdrop-blur sm:grid-cols-3">
           {features.map((feature) => (
             <div
@@ -220,17 +219,30 @@ export default function Home() {
             </div>
           ))}
         </section>
-
-        <section className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+        
+        <section className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-slate-900">
               Comment ça fonctionne ?
             </h2>
+
             <p className="text-slate-700">
               Nous combinons vérification d’identité et sélection de lieux sûrs pour que la première rencontre se fasse dans un
               cadre clair et rassurant.
             </p>
+
+            <div className="mx-auto pt-2" style={{ width: "250px" }}>
+              <video
+                src="/video.mp4"
+                className="w-full h-auto rounded-2xl shadow-lg"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
           </div>
+
           <div className="flex flex-col gap-4">
             {steps.map((step) => (
               <div
